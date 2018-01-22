@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css';
 import './Login.css'
 
 
@@ -16,7 +16,6 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      jwt: ""
     };
   }
 
@@ -30,6 +29,10 @@ class Login extends Component {
     });
   }
 
+  sendToken = (token) => {
+    this.props.setAuthentication(token);
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     axios.post('http://localhost:3000/user_token', {"auth": {
@@ -37,7 +40,8 @@ class Login extends Component {
       "password": this.state.password
     }}, {'Content-Type': 'application/json'})
     .then((response) => {
-      this.setState({jwt: response.data.jwt});
+      // this.setState({jwt: response.data.jwt});
+      this.sendToken(response.data.jwt);
     })
     .catch((error) => {
       console.log(error);
