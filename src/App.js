@@ -33,7 +33,7 @@ class App extends Component {
 
   userLogout = () => {
     this.setState({jwt: ""});
-    localStorage.removeItem('jwt')
+    localStorage.setItem('jwt', "")
   }
 
   render() {

@@ -9,6 +9,11 @@ class Navigation extends Component {
     this.props.userLogout();
   }
 
+  showToken = (e) => {
+    e.preventDefault();
+    console.log(this.props.token.length)
+  }
+
   render() {
     return(
       <div className="Navigation">
@@ -20,12 +25,18 @@ class Navigation extends Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Nav key="1">
-            <RouteNavItem key={1} href="/groups">
-              Groups
-            </RouteNavItem>
+            {(() =>{
+              if (this.props.token.length > 0) {
+              return (
+              <RouteNavItem key={1} href="/groups">
+                Groups
+              </RouteNavItem>
+              );
+              }
+            })()}
           </Nav>
           <Nav key="2" pullRight>
-            {(this.props.token.length !== 0)
+            {(this.props.token.length > 0)
               ? <NavItem onClick={this.handleLogout} href="/login">Logout</NavItem>
               : [
                   <RouteNavItem key={2} href="/signup">
@@ -41,13 +52,5 @@ class Navigation extends Component {
     );
   }
 }
-
-// {(() => {
-//                 if (this.props.token) {
-//                   return <NavItem eventKey={1} onClick={this.logout} href="/">Logout</NavItem>;
-//                 } else {
-//                   return <RouteNavItem href="/login">Login</RouteNavItem>;
-//                 }
-//               })()}
 
 export default Navigation;
