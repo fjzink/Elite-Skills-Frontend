@@ -3,8 +3,16 @@
     padding: 60px 0;
   }
 
-  .Signup form {
+  .Signup form{
     margin: 0 auto;
     max-width: 320px;
+  }
+
+  .page-header{
+    padding-left: 5%;
+  }
+
+  .page-header h1{
+    font-size: 1.6em;
   }
 }
