@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
+import Signup from './components/Signup';
 import './App.css';
 
 class App extends Component {
@@ -45,6 +46,9 @@ class App extends Component {
             />
             <Route exact path="/"
               render={(props) => <Home {...props} token={this.state.jwt}/>}
+            />
+            <Route exact path="/signup"
+              render={(props) => <Signup {...props} setAuthentication={this.setAuthentication}/>}
             />
             <Route exact path="/login"
               render={(props) => <Login {...props} setAuthentication={this.setAuthentication}/>}

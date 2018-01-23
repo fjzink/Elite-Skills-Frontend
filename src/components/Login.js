@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, ControlLabel, PageHeader } from 'react-bootstrap';
 import axios from 'axios';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap-theme.css';
 import './Login.css'
 
 
@@ -40,7 +38,6 @@ class Login extends Component {
       "password": this.state.password
     }}, {'Content-Type': 'application/json'})
     .then((response) => {
-      // this.setState({jwt: response.data.jwt});
       this.sendToken(response.data.jwt);
       this.props.history.push("/");
     })
@@ -52,6 +49,7 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
+        <PageHeader>Login</PageHeader>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
