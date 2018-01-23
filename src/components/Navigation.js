@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import RouteNavItem from './RouteNavItem';
 import './Navigation.css'
 
 class Navigation extends Component {
   handleLogout = (e) => {
-    // e.preventDefault();
     this.props.userLogout();
   }
 
@@ -20,14 +19,19 @@ class Navigation extends Component {
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Nav pullRight>
+          <Nav key="1">
+            <RouteNavItem key={1} href="/groups">
+              Groups
+            </RouteNavItem>
+          </Nav>
+          <Nav key="2" pullRight>
             {(this.props.token.length !== 0)
               ? <NavItem onClick={this.handleLogout} href="/login">Logout</NavItem>
               : [
-                  <RouteNavItem key={1} href="/signup">
+                  <RouteNavItem key={2} href="/signup">
                     Signup
                   </RouteNavItem>,
-                  <RouteNavItem key={2} href="/login">
+                  <RouteNavItem key={3} href="/login">
                     Login
                   </RouteNavItem>
             ]}

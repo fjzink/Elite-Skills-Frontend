@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
 import Signup from './components/Signup';
+import Groups from './components/Groups';
 import './App.css';
 
 class App extends Component {
@@ -52,6 +53,9 @@ class App extends Component {
             />
             <Route exact path="/login"
               render={(props) => <Login {...props} setAuthentication={this.setAuthentication}/>}
+            />
+            <Route exact path="/groups"
+              render={(props) => <Groups {...props} token={this.state.jwt}/>}
             />
           </div>
         </BrowserRouter>
