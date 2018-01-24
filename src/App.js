@@ -55,7 +55,7 @@ class App extends Component {
               render={(props) => <Login {...props} setAuthentication={this.setAuthentication}/>}
             />
             <Route exact path="/groups"
-              render={(props) => <Groups {...props} token={this.state.jwt}/>}
+              component={Groups}
             />
           </div>
         </BrowserRouter>

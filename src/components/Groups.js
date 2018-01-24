@@ -3,32 +3,44 @@ import Group from './Group';
 import axios from 'axios';
 
 class Groups extends Component {
-  getGroups = function getGroups() {
-    let authToken = "Bearer " + this.props.token;
-    console.log("authToken: " + authToken);
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      groups: []
+    };
+  }
+
+  getGroups = function getGroups() {
+    let authToken = "Bearer " + localStorage.getItem('jwt');
     axios({
       url: 'http://localhost:3000/groups',
       method: 'get',
       headers: {'Authorization': authToken, 'Content-Type': 'application/json'}
     })
     .then((response) => {
-      console.log(response);
+      this.setState({groups: response.data});
     })
     .catch((error) => (console.log(error)));
   }
 
   componentDidMount() {
-    this.setState({jwt: this.props.token});
-    console.log(this.props.token)
     this.getGroups();
   }
 
   render() {
     return (
       <div className="Groups">
-        {[<Group key="1" bsStyle="primary"/>, <Group key="2" bsStyle="primary"/>, <Group key="3" bsStyle="primary"/>]}
-        <p>{this.props.token}</p>
+        {this.state.groups.map((group, index) => {
+          return (
+            <Group
+            key={index}
+            bsStyle={"primary"}
+            title={group.group}
+            description={group.description}
+            />
+          );
+        })}
       </div>
     );
   }

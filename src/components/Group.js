@@ -8,9 +8,9 @@ class Group extends Component {
       <div className="Group">
         <Panel bsStyle={this.props.bsStyle}>
           <Panel.Heading>
-            <Panel.Title>Group</Panel.Title>
+            <Panel.Title>{this.props.title}</Panel.Title>
           </Panel.Heading>
-          <Panel.Body>Description</Panel.Body>
+          <Panel.Body>{this.props.description}</Panel.Body>
         </Panel>
       </div>
     );
