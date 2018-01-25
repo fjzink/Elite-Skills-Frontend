@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   FormGroup,
   FormControl,
   ControlLabel,
   PageHeader
-} from "react-bootstrap";
+} from 'react-bootstrap';
 import axios from 'axios';
-import "./Signup.css";
+import './Signup.css';
 
 class Signup extends Component {
   constructor(props) {
