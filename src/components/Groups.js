@@ -38,6 +38,7 @@ class Groups extends Component {
             bsStyle={"primary"}
             title={group.group}
             description={group.description}
+            groupId={group.id}
             />
           );
         })}

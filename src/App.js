@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Groups from './components/Groups';
+import Skills from './components/Skills';
 import './App.css';
 
 class App extends Component {
@@ -56,6 +57,9 @@ class App extends Component {
             />
             <Route exact path="/groups"
               component={Groups}
+            />
+            <Route path="/groups/:group/skills"
+              component={Skills}
             />
           </div>
         </BrowserRouter>
