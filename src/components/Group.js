@@ -11,7 +11,7 @@ class Group extends Component {
       <div className="Group">
         <Panel bsStyle={this.props.bsStyle}>
           <Panel.Heading>
-            <Panel.Title>{this.props.title} <Link to={this.formatLink()}>See Skills>>></Link></Panel.Title>
+            <Panel.Title>{this.props.title} <Link className="group-link" to={this.formatLink()}>See Skills>></Link></Panel.Title>
           </Panel.Heading>
           <Panel.Body>{this.props.description}</Panel.Body>
         </Panel>
