@@ -14,7 +14,6 @@ class Home extends Component {
     return (
       <div className="Home">
         <h1>Home</h1>
-        <p>{this.props.token}</p>
       </div>
     );
   }

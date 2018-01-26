@@ -1,4 +1,4 @@
-.Group {
+.Skill {
   margin: 0 auto;
   width: 50%;
 }
@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.group-link {
+.skill-link {
   position: absolute;
   right: 5%;
 }
