@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import Groups from './components/Groups';
 import Skills from './components/Skills';
+import Metrics from './components/Metrics';
 import './App.css';
 
 class App extends Component {
@@ -60,6 +61,9 @@ class App extends Component {
             />
             <Route path="/groups/:group/skills"
               component={Skills}
+            />
+            <Route path="/skills/:skill/metrics"
+              component={Metrics}
             />
           </div>
         </BrowserRouter>
