@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
 
 class Metrics extends Component {
   constructor(props) {
@@ -19,13 +20,9 @@ class Metrics extends Component {
     })
     .then((response) => {
       let formattedData = response.data.map((metric) => {
-        let newMetric = metric
         let date = new Date(metric.created_at);
-        let UTCDay = date.getUTCDate();
-        let UTCMonth = date.getUTCMonth();
-        newMetric.day = UTCDay
-        newMetric.month = UTCMonth
-        return newMetric
+        let chartData = {x: date, y: metric.data};
+        return chartData
       });
       console.log(formattedData);
       this.setState({data: formattedData});
@@ -40,7 +37,18 @@ class Metrics extends Component {
   render() {
     return(
       <div className="Metrics">
-
+        <VictoryChart
+          theme={VictoryTheme.material}
+          scale={{ x: "time" }}
+        >
+          <VictoryLine
+            style={{
+              data: { stroke: "#c43a31" },
+              parent: { border: "1px solid #ccc"}
+            }}
+            data={this.state.data}
+          />
+        </VictoryChart>
       </div>
     );
   }
