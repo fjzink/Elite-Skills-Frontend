@@ -43,6 +43,7 @@ class Metrics extends Component {
           scale={{ x: "time" }}
           height={300}
           width={400}
+          animate={{duration: 100}}
         >
           <VictoryLine
             style={{
