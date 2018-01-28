@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
+import './Metrics.css'
 
 class Metrics extends Component {
   constructor(props) {
@@ -40,6 +41,8 @@ class Metrics extends Component {
         <VictoryChart
           theme={VictoryTheme.material}
           scale={{ x: "time" }}
+          height={300}
+          width={400}
         >
           <VictoryLine
             style={{
