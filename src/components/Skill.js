@@ -5,7 +5,7 @@ import './Skill.css'
 
 
 class Skill extends Component {
-  formatLink = () => '/skills/' + this.props.skillId.toString();
+  formatLink = () => '/skills/' + this.props.skillId.toString() + '/metrics';
 
   render () {
     return (
