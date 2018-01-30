@@ -1,0 +1,9 @@
+.GroupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-button {
+  margin: 0 auto;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Group from './Group';
+import GroupForm from './GroupForm';
 import axios from 'axios';
 
 class Groups extends Component {
@@ -42,6 +43,7 @@ class Groups extends Component {
             />
           );
         })}
+        <GroupForm />
       </div>
     );
   }
