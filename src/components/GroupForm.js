@@ -37,6 +37,7 @@ class GroupForm extends Component {
           <p>Add group form here</p>
           </Modal.Body>
           <Modal.Footer>
+            <Button onClick={this.handleClose}>Submit</Button>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
