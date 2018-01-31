@@ -7,6 +7,8 @@ class Groups extends Component {
   constructor(props) {
     super(props);
 
+    this.addGroup = this.addGroup.bind(this)
+
     this.state = {
       groups: []
     };
@@ -23,6 +25,12 @@ class Groups extends Component {
       this.setState({groups: response.data});
     })
     .catch((error) => (console.log(error)));
+  }
+
+  addGroup = function addGroup(newGroup) {
+    this.setState((prevState) => {
+      return {groups: [...prevState.groups, newGroup]}
+    });
   }
 
   componentDidMount() {
@@ -43,7 +51,7 @@ class Groups extends Component {
             />
           );
         })}
-        <GroupForm />
+        <GroupForm addGroup={this.addGroup}/>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import './GroupForm.css'
+import AddGroup from './AddGroup';
+import './GroupForm.css';
 
 class GroupForm extends Component {
   constructor(props, context) {
@@ -34,10 +35,12 @@ class GroupForm extends Component {
             <Modal.Title>Add Group</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <p>Add group form here</p>
+            <AddGroup
+              handleClose={this.handleClose}
+              addGroup={this.props.addGroup}
+            />
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleClose}>Submit</Button>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
