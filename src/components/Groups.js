@@ -7,7 +7,7 @@ class Groups extends Component {
   constructor(props) {
     super(props);
 
-    this.addGroup = this.addGroup.bind(this)
+    this.addGroup = this.addGroup.bind(this);
 
     this.state = {
       groups: []
@@ -43,11 +43,12 @@ class Groups extends Component {
         {this.state.groups.map((group, index) => {
           return (
             <Group
-            key={index}
-            bsStyle={"primary"}
-            title={group.group}
-            description={group.description}
-            groupId={group.id}
+              key={index}
+              bsStyle={"primary"}
+              title={group.group}
+              description={group.description}
+              groupIndex={index}
+              groupId={group.id}
             />
           );
         })}

@@ -1,0 +1,9 @@
+.delete-button {
+  position: relative;
+  left: 25%;
+}
+
+.cancel-button {
+  position: relative;
+  left: 50%;
+}
